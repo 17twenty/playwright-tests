@@ -10,7 +10,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.41.1-focal
+      image: mcr.microsoft.com/playwright:v1.50.1-focal
 
     steps:
       - uses: actions/checkout@v3
@@ -23,19 +23,14 @@ jobs:
 
       - name: Install dependencies
         run: |
-          echo "Installing Playwright browsers..."
-          npx playwright install --with-deps chromium
           ls -la /ms-playwright/
-          echo "Browser installation complete"
           npm ci
 
       - name: Build the app
         run: npm run build
 
       - name: Run Playwright tests
-        run: |
-          ls -la /ms-playwright/
-          PLAYWRIGHT_DEBUG=1 npm test
+        run: PLAYWRIGHT_DEBUG=1 npm test
 
       - name: Upload test results
         if: always()
