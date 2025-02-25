@@ -4,8 +4,8 @@
 
 ```bash
 npm install vite@latest
-npm create vite@latest frontend -- --template vue
-cd frontend
+npm create vite@latest platwright-tests -- --template vue
+cd platwright-tests
 # Test it builds
 npm install
 npm run dev
