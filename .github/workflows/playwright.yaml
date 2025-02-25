@@ -24,12 +24,15 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
+        working-directory: frontend
         run: npm ci
 
       - name: Build the app
+        working-directory: frontend
         run: npm run build
 
       - name: Run Playwright tests
+        working-directory: frontend
         run: npm test
 
       - name: Upload test results
