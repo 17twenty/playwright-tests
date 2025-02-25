@@ -22,13 +22,20 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          echo "Installing Playwright browsers..."
+          npx playwright install --with-deps chromium
+          ls -la /ms-playwright/
+          echo "Browser installation complete"
+          npm ci
 
       - name: Build the app
         run: npm run build
 
       - name: Run Playwright tests
-        run: npm test
+        run: |
+          ls -la /ms-playwright/
+          PLAYWRIGHT_DEBUG=1 npm test
 
       - name: Upload test results
         if: always()
