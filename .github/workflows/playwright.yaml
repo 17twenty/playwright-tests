@@ -14,8 +14,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - working-directory: "frontend"
-        run: echo "Setting working directory"
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -24,15 +22,12 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
-        working-directory: frontend
         run: npm ci
 
       - name: Build the app
-        working-directory: frontend
         run: npm run build
 
       - name: Run Playwright tests
-        working-directory: frontend
         run: npm test
 
       - name: Upload test results

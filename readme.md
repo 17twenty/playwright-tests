@@ -19,3 +19,5 @@ You should see the app running at http://localhost:5173
 npm install --save-dev @playwright/test
 npx playwright install --with-deps chromium # You need this for dockerised stuff
 ```
+
+Setup the `hello.spec.js` and `playwright.config.ts` files
